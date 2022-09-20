@@ -22,7 +22,7 @@ def _process_joke(ti):
     processed_joke.to_csv('/tmp/processed_jokes.csv', index=None, header=False)
 
 def _store_joke():
-    hook = PostgresHook(postgres_conn_id='jokes_api')
+    hook = PostgresHook(postgres_conn_id='postgres')
     hook.copy_expert(sql="COPY jokes FROM stdin WITH DELIMITER ',' ",
     filename='/tmp/processed_jokes.csv')
 
